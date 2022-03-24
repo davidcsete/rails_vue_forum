@@ -1,0 +1,18 @@
+<h1>Sign Up</h1>
+<%= form_for @user, :url =>'/register' do |f|%>
+  <%= f.label :username%><br>
+  <%= f.text_field :username%><br>
+  <%= f.label :email%><br>
+  <%= f.text_field :email%><br>
+  <%= f.label :phone%><br>
+  <%= f.text_field :phone%><br>
+  <%= f.label :mobile%><br>
+  <%= f.text_field :mobile%><br>
+  <%= f.label :password%><br>
+  <%= f.password_field :password%><br>
+  <%= f.label :repeat_password%><br>
+  <%= f.password_field :repeat_password%><br>
+  <div style="margin:10px 0;">
+    <%= f.submit "Sign up" %>
+  </div>
+<%end%>

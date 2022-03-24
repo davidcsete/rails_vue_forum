@@ -1,0 +1,16 @@
+<h1>Login</h1>
+<%= form_for @user do |f|%>
+  <%= f.label :username%><br>
+  <%= f.text_field :username%><br>
+  <%= f.label :password%><br>
+  <%= f.password_field :password%><br>
+  <div style="margin:10px 0;">
+    <%= f.submit "Login" %>
+  </div>
+  <p>
+    Don't have an account yet?<br>
+    <a href="/register">
+      Register here.
+    </a>
+  </p>
+<%end%>
