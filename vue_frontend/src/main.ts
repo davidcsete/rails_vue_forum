@@ -5,8 +5,8 @@ import store from "./store";
 /**
  * Load JWT from Local Storage on Refresh.
  */
-let localAuthToken = localStorage.auth_token;
-let cookieExists = localAuthToken !== "undefined" && localAuthToken !== null;
+const localAuthToken = localStorage.auth_token;
+const cookieExists = localAuthToken !== "undefined" && localAuthToken !== null;
 if (cookieExists) {
   const auth_token = localStorage.getItem("auth_token");
   const authTokenExists = auth_token !== "undefined" && auth_token !== null;

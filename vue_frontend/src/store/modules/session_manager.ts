@@ -11,16 +11,16 @@ const state = {
   },
 };
 const getters = {
-  getAuthToken(state: { auth_token: any; }) {
+  getAuthToken(state: { auth_token: any }) {
     return state.auth_token;
   },
-  getUserEmail(state: { user: { email: any; }; }) {
+  getUserEmail(state: { user: { email: any } }) {
     return state.user?.email;
   },
-  getUserID(state: { user: { id: any; }; }) {
+  getUserID(state: { user: { id: any } }) {
     return state.user?.id;
   },
-  isLoggedIn(state: { auth_token: string | null; }) {
+  isLoggedIn(state: { auth_token: string | null }) {
     const loggedOut =
       state.auth_token == null || state.auth_token == JSON.stringify(null);
     return !loggedOut;
@@ -53,9 +53,9 @@ const actions = {
         });
     });
   },
-  logoutUser({ commit }:any) {
+  logoutUser({ commit }: any) {
     const config = {
-      data:{
+      data: {
         headers: {
           authorization: state.auth_token,
         },
@@ -73,7 +73,7 @@ const actions = {
         });
     });
   },
-  loginUserWithToken({ commit }: any, payload: { auth_token: any; }) {
+  loginUserWithToken({ commit }: any, payload: { auth_token: any }) {
     const config = {
       headers: {
         Authorization: payload.auth_token,
@@ -93,17 +93,29 @@ const actions = {
   },
 };
 const mutations = {
-  setUserInfo(state: { user: any; auth_token: any; }, data: { data: { user: any; }; headers: { authorization: string | number | boolean; }; }) {
+  setUserInfo(
+    state: { user: any; auth_token: any },
+    data: {
+      data: { user: any };
+      headers: { authorization: string | number | boolean };
+    }
+  ) {
     state.user = data.data.user;
     state.auth_token = data.headers.authorization;
     axios.defaults.headers.common["Authorization"] = data.headers.authorization;
     localStorage.setItem("auth_token", data.headers.authorization.toString());
   },
-  setUserInfoFromToken(state: { user: any; auth_token: string | null; }, data: { data: { user: any; }; }) {
+  setUserInfoFromToken(
+    state: { user: any; auth_token: string | null },
+    data: { data: { user: any } }
+  ) {
     state.user = data.data.user;
     state.auth_token = localStorage.getItem("auth_token");
   },
-  resetUserInfo(state: { user: { id: null; username: null; email: null; }; auth_token: null; }) {
+  resetUserInfo(state: {
+    user: { id: null; username: null; email: null };
+    auth_token: null;
+  }) {
     state.user = {
       id: null,
       username: null,

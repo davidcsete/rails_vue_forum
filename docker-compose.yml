@@ -1,4 +1,4 @@
-version: '3.8'
+version: '2.4.1'
 services:
   db:
     image: mysql:8.0.28
@@ -19,7 +19,7 @@ services:
     environment:
       - PORT=3000
     volumes:
-      - .:/backend_api
+      - ./backend_api:/webapp
     ports:
       - "3000:3000" # use port that you want to in your local instead of 3000
     depends_on:
@@ -31,14 +31,10 @@ services:
       context: ./vue_frontend
       dockerfile: Dockerfile
     volumes:
-      - .:/vue_frontend
-      - /node_modules
-    environment: 
-      - CHOKIDAR_USEPOLLING=true    
-    expose:
-      - "8080"
+       - ./vue_frontend:/app
+       - /app/node_modules
     ports:
-      - "8080:8080"
+      - "8080:3000"
 volumes:
   db:
     driver: local
