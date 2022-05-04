@@ -21,6 +21,10 @@ WORKDIR /webapp
 COPY . /webapp/
 
 ENV BUNDLE_PATH /gems
+ENV GEM_PATH /gems
+ENV GEM_HOME /gems
+ENV BUNDLE_APP_CONFIG /gems
+
 RUN bundle install
 RUN yarn install
 
