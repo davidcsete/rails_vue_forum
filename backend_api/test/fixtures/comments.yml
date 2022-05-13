@@ -5,11 +5,11 @@ one:
   content: MyText
   post: one
   user: one
-  parent_id: 1
+  comment: one
 
 two:
   name: MyString
   content: MyText
   post: two
   user: two
-  parent_id: 1
+  comment: two
