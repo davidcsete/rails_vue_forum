@@ -1,6 +1,9 @@
-import App from "./App.vue";
+import App from './App.vue';
 import { createApp } from "vue";
 import store from "./store";
+import router from "./router";
+import { createPinia } from "pinia";
+
 
 /**
  * Load JWT from Local Storage on Refresh.
@@ -14,4 +17,4 @@ if (cookieExists) {
     store.dispatch("loginUserWithToken", { auth_token });
   }
 }
-createApp(App).use(store).mount("#app");
+createApp(App).use(store).use(createPinia()).use(router).mount("#app");
