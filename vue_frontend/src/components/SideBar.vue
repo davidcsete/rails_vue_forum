@@ -3,7 +3,7 @@
     import HomeView from '@/views/HomeView.vue';
 </script>
 <template>
-    <div class="wrapper">
+    <div class="sidebar-open">
         <nav>
             <RouterLink to="/">
                 Home
@@ -14,9 +14,10 @@
 </template>
 
 <style>
-.wrapper {
+.sidebar-open {
     float:left;
     width: 300px;
+    
 }
 nav {
   width: 100%;
