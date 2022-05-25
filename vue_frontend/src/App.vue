@@ -1,13 +1,10 @@
-
-<script>
+<script lang="ts">
 // import SessionManager from "./components/SessionManager.vue";
 import SideBar from "@/components/SideBar.vue";
-import {RouterView} from "vue-router";
 export default {
   name: "App",
   components: {
-    SideBar,
-    RouterView
+    SideBar
   },
 };
 </script>
@@ -15,7 +12,6 @@ export default {
   <!-- <SessionManager /> -->
   <div class="app">
     <SideBar />
-    <RouterView />
   </div>
   
 </template>

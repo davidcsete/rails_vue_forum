@@ -1,8 +1,10 @@
 <script setup lang="ts">
 defineProps<{
-  msg: string;
+  id:number;
 }>();
 </script>
 <template>
-    <h1>{{msg}}</h1>
+  <div>
+    <h1>{{ id }}</h1>
+  </div>
 </template>

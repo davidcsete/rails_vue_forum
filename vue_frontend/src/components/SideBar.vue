@@ -1,6 +1,9 @@
 <script setup lang="ts">
     import { RouterLink } from "vue-router";
-    import HomeView from '@/views/HomeView.vue';
+    import TrendingCategory from "@/components/TrendingCategory.vue";
+    import {RouterView} from "vue-router";
+    import {ref} from "vue";
+    const show = ref(false);
 </script>
 <template>
     <div class="sidebar-open">
@@ -9,8 +12,16 @@
                 Home
             </RouterLink>
             <RouterLink to="/about">About</RouterLink>
+            <button @click="show = !show" to="/category/1">category</button>
+            <Transition>
+              <div v-if="show">
+                <TrendingCategory />
+              </div>
+            </Transition>
+            <RouterLink to="/login">Login</RouterLink>
         </nav>
     </div>
+    <RouterView />
 </template>
 
 <style>
