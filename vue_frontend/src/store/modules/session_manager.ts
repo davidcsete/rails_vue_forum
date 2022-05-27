@@ -113,7 +113,7 @@ const mutations = {
     state.auth_token = localStorage.getItem("auth_token");
   },
   resetUserInfo(state: {
-    user: { id: null; username: null; email: null };
+    user: { id: null ; username: null; email: null };
     auth_token: null;
   }) {
     state.user = {
