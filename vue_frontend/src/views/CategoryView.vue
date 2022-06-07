@@ -1,12 +1,14 @@
 <script lang="ts">
 import { useRoute } from "vue-router";
-import TheCategory from "@/components/TheCategory.vue";
+import TheCategoryTitle from "@/components/TheCategoryTitle.vue";
+import ThePost from "@/components/ThePost.vue";
 
 // app.mount(Category)
 export default {
   name: "CategoryView",
   components: {
-    TheCategory
+    TheCategoryTitle,
+    ThePost
   },
   setup() {
     const route = useRoute();  
@@ -19,20 +21,22 @@ export default {
   },
   props: {
     id: { type: Number, required: true },
+    name: { type: String, required: true },
   },
 };
 </script>
 
 <template>
-  <div>
-    <TheCategory v-bind="{id: id}" /> 
-  </div>
-  <div>
-    {{id}}
-  </div>
+  <main>
+    <div class="content">
+      <TheCategoryTitle v-bind="{name: name}" /> 
+      <ThePost v-bind="{categoryId:id}" />
+    </div>
+  </main>
 </template>
 
-<style>
+<style lang="scss">
+
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;

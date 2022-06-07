@@ -1,10 +1,10 @@
 <script setup lang="ts">
 defineProps<{
-  id:number;
+  name:string;
 }>();
 </script>
 <template>
   <div>
-    <h1>{{ id }}</h1>
+    <h1>{{ name }}</h1>
   </div>
 </template>
