@@ -4,7 +4,7 @@ import TheHome from "@/components/TheHome.vue";
 
 <template>
   <main>
-    <div>
+    <div class="content">
       <TheHome msg="HomePage" />
     </div>
   </main>

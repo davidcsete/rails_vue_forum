@@ -13,12 +13,6 @@ class Comment < ApplicationRecord
   # -> { where('published_at > ?', Time.now) }
 
   def descendents
-    # dummy = Hash.new(0)
-    # replies.each do |reply|
-    #   dummy[] = [reply.descendents]
-    # end
-    # return dummy
-
     replies.map do |reply|
        reply.replies.length>0 ? JSON.parse(reply.to_json( {  methods: :descendents } )) : JSON.parse(reply.to_json)
       

@@ -17,12 +17,17 @@ function formatDate(v) {
 }
 </script>
 <template>
-  <div>
+  <div class="trending-categories">
     <RouterLink
       v-for="{ id, name, posts } in categories"
       :key="id"
-      :to="{ name: 'category', params: { id:id  } }" >
+      :to="{ name: 'category', params: { id:id, name:name } }" >
       {{name}}
     </RouterLink>
   </div>
 </template>
+<style>
+  .trending-categories {
+    margin-left:10px;
+  }
+</style>

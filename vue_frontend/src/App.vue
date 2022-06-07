@@ -13,6 +13,7 @@ export default {
   <div class="app">
     <SideBar />
   </div>
+
   
 </template>
 
@@ -26,5 +27,18 @@ export default {
   text-align: center;
   color: #2c3e50;
   font-weight: normal;
+}
+$width : calc(100% - 120px);
+main {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  padding: 40px 25px;
+  transition: 0.5s ease-in-out;
+  width: $width;
+}
+.app {
+  display: flex;
+  height: 100%;
 }
 </style>
