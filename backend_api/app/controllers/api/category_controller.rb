@@ -3,4 +3,8 @@ class Api::CategoryController < ApplicationController
         @post = Post.includes(:user).where(category_id: params[:id])
         render json: @post.to_json(:include => :user)
     end
+
+    def create
+
+    end
 end

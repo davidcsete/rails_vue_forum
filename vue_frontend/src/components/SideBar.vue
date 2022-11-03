@@ -30,7 +30,6 @@
                 Trending Categories
               </button>
               <Transition name="slidedown">
-                
                 <div v-if="showTrendingCategory">
                   <TrendingCategory />
                 </div>

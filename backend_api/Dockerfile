@@ -5,9 +5,7 @@ RUN apk add --update --virtual \
     build-base \
     libxml2-dev \
     libxslt-dev \
-    mysql-client \
-    mariadb-dev \
-    mariadb-client \
+    postgresql-dev \
     nodejs \
     yarn \
     libffi-dev \
@@ -15,7 +13,7 @@ RUN apk add --update --virtual \
     tzdata \
     && rm -rf /var/cache/apk/*
 
-RUN gem install --default mysql2 -v '0.5.3' --source 'https://rubygems.org'
+RUN gem install --default pg -v '1.4.3' --source 'https://rubygems.org'
 
 WORKDIR /webapp
 COPY . /webapp/

@@ -13,9 +13,10 @@ class Comment < ApplicationRecord
   # -> { where('published_at > ?', Time.now) }
 
   def descendents
+    return JSON.parse(nil.to_json) if replies.length == 0
+
     replies.map do |reply|
-       reply.replies.length>0 ? JSON.parse(reply.to_json( {  methods: :descendents } )) : JSON.parse(reply.to_json)
-      
+      JSON.parse(reply.to_json( {  methods: :descendents } ))
     end
   end
 

@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="sm-title">Vuejs Session Manager</h1>
     <div class="sm-card">
-      <div v-if="isLoggedIn">
+      <div v-if="isLoggedIn && !isAdmin">
         <button @click="logoutUser" class="logout-button">Logout</button>
         <table class="table">
           <thead class="thead-dark">
@@ -22,6 +22,9 @@
             </tr>
           </tbody>
         </table>
+      </div>
+      <div v-else-if="isLoggedIn && isAdmin">
+        You're an admin lol
       </div>
       <div v-else>
         <h3>Sign Up!</h3>
@@ -73,7 +76,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   name: "SessionManager",
   computed: {
-    ...mapGetters(["getAuthToken", "getUserEmail", "getUserID", "isLoggedIn"]),
+    ...mapGetters(["getAuthToken", "getUserEmail", "getUserID", "isAdmin", "isLoggedIn"]),
   },
   data() {
     return {
