@@ -8,6 +8,7 @@ const state = {
     id: null,
     username: null,
     email: null,
+    is_admin: null,
   },
 };
 const getters = {
@@ -24,6 +25,9 @@ const getters = {
     const loggedOut =
       state.auth_token == null || state.auth_token == JSON.stringify(null);
     return !loggedOut;
+  },
+  isAdmin(state: { user: { is_admin: any } }) {
+    return state.user?.is_admin;
   },
 };
 const actions = {
@@ -113,13 +117,14 @@ const mutations = {
     state.auth_token = localStorage.getItem("auth_token");
   },
   resetUserInfo(state: {
-    user: { id: null ; username: null; email: null };
+    user: { id: null ; username: null; email: null; is_admin: null };
     auth_token: null;
   }) {
     state.user = {
       id: null,
       username: null,
       email: null,
+      is_admin: null,
     };
     state.auth_token = null;
     localStorage.removeItem("auth_token");
